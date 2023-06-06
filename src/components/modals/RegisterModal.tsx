@@ -8,6 +8,7 @@ import axios from "axios";
 import { Modal } from "@/components/modals/Modal";
 import { Heading } from "../Heading";
 import { Input } from "../inputs/Input";
+import { toast } from "react-hot-toast";
 
 export const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -33,7 +34,7 @@ export const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Something went wrong");
       })
       .finally(() => {
         setIsLoading(false);
@@ -46,6 +47,23 @@ export const RegisterModal = () => {
       <Input
         id="email"
         label="Email"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="name"
+        label="Name"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="password"
+        type="password"
+        label="Password"
         disabled={isLoading}
         register={register}
         errors={errors}
