@@ -41,3 +41,7 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
+
+model Listing {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
