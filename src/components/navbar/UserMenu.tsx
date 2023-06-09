@@ -2,7 +2,7 @@
 import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Avatar } from "../Avatar";
-import { useRegisterModal } from "@/app/hooks/useRegisterModal";
+import { useRegisterModal } from "@/hooks/useRegisterModal";
 import { MenuItem } from "./MenuItem";
 
 export function UserMenu() {

@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useState } from "react";
-import { useRegisterModal } from "@/app/hooks/useRegisterModal";
+import { useRegisterModal } from "@/hooks/useRegisterModal";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
