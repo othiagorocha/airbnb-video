@@ -1,18 +1,20 @@
 "use client";
 import React, { useState } from "react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 import { useRegisterModal } from "@/hooks/useRegisterModal";
+import { useLoginModal } from "@/hooks/useLoginModal";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import axios from "axios";
 import { Modal } from "@/components/modals/Modal";
 import { Heading } from "../Heading";
 import { Input } from "../inputs/Input";
-import { toast } from "react-hot-toast";
 import { Button } from "../Button";
 
-export const RegisterModal = () => {
+export const LoginModal: React.FC = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -44,18 +46,10 @@ export const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
+      <Heading title="Welcome back" subtitle="Login to your account!" />
       <Input
         id="email"
         label="Email"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
-      <Input
-        id="name"
-        label="Name"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -105,10 +99,10 @@ export const RegisterModal = () => {
   return (
     <Modal
       disabled={isLoading}
-      isOpen={registerModal.isOpen}
-      title="Register"
+      isOpen={loginModal.isOpen}
+      title="Login"
       actionLabel="Continue"
-      onClose={registerModal.onClose}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}

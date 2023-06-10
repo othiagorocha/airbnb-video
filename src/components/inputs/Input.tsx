@@ -48,6 +48,26 @@ export const Input: React.FC<InputProps> = ({
           }
         )}
       />
+      <label
+        className={`
+          text-md 
+          absolute
+          top-5 
+          z-10 
+          origin-[0] 
+          -translate-y-3 
+          transform 
+          duration-150 
+          ${formatPrice ? "left-9" : "left-4"}
+          peer-placeholder-shown:translate-y-0 
+          peer-placeholder-shown:scale-100 
+          peer-focus:-translate-y-4
+          peer-focus:scale-75
+          ${errors[id] ? "text-rose-500" : "text-zinc-400"}
+        `}
+      >
+        {label}
+      </label>
     </div>
   );
 };
