@@ -7,10 +7,9 @@ import { MenuItem } from "./MenuItem";
 import { useLoginModal } from "@/hooks/useLoginModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
-import { User } from "next-auth";
 
 interface UserMenuProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
